@@ -1,16 +1,16 @@
 import binascii
 import ipaddress
-import random
 import time
 
 from django.http import HttpResponse
 from django.template import loader
 
 from .settings import BASE_DOMAIN, SECRET_KEY
+from .werder import get_werder_werds
 
 
 def get_randid():
-    return '{:08x}'.format(int(random.uniform(0, 0xffffffff)))
+    return get_werder_werds(1)[0]
 
 
 def index_commandline(request):
