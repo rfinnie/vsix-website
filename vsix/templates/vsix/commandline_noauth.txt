@@ -1,0 +1,18 @@
+Hi there, command line user!
+
+This site is intended to be used by humans.
+To discourage automated scraping, please go to the following URL,
+which will change periodically:
+
+    https://{{ server_hostname }}/?a={{ access_key }}
+
+IPv6-only URL:
+    https://six.{{ base_domain }}/?a={{ access_key }}
+IPv4-only URL:
+    https://four.{{ base_domain }}/?a={{ access_key }}
+Random nocache URL:
+    https://{{ randid }}.nocache.{{ base_domain }}/?a={{ access_key }}
+
+Yes, you could trivially write something to automate this,
+but please don't.  Sorry for the inconvenience.
+

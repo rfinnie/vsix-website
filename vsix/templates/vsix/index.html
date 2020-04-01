@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+{% if server_hostname == base_domain %}
+<meta name="robots" content="noindex"/>
+{% endif %}
+<title>{{ base_domain }} IP Tests</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Pontano+Sans&display=swap" rel="stylesheet"> 
+<link href="{% static 'vsix/style.css' %}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container">
+<h1>{{ base_domain }} IP Tests</h1>
+<p class="center">Your IP address is:</p>
+<p class="center displayip">
+<a title="WHOIS lookup at ARIN" href="https://whois.arin.net/rest/nets;q={{ request.META.REMOTE_ADDR }}?showDetails=true&amp;showARIN=false&amp;ext=netref2">{{ request.META.REMOTE_ADDR }}</a></p>
+{% if is_ipv6 %}
+<p>This is an IPv6 address, which means you have a functioning IPv6 stack.</p>
+{% if known_net == 'he' %}
+<p>You appear to be using Hurricane Electric's <a href="https://tunnelbroker.net/">IPv6 Tunnel Broker</a>.</p>
+{% endif %}
+{% elif forced_ipv4_host %}
+<p>This is an IPv4 address.  However, I've noticed you're visiting this site as {{ server_hostname }}, which only returns IPv4 results.  Please read on for more information.</p>
+{% else %}
+<p>This is an IPv4 address.  If you were expecting an IPv6 address, please read on.</p>
+{% endif %}
+<h2>Test Domains</h2>
+<p>This site can be tested by going to several different subdomains:</p>
+<ul>
+<li><a href="https://{{ base_domain }}/">{{ base_domain }}</a>: Publishes both IPv4 and IPv6 addresses.  A properly set up computer with IPv6 connectivity should prefer IPv6 when going here.</li>
+<li><a href="https://six.{{ base_domain }}/" rel="nofollow">six.{{ base_domain }}</a>: Publishes only an IPv6 address.  If you have any sort of IPv6 connectivity, you should be able to reach this.  (Also available as <a href="https://ipv6.{{ base_domain }}/" rel="nofollow">ipv6.{{ base_domain }}</a> and <a href="https://6.{{ base_domain }}/" rel="nofollow">6.{{ base_domain }}</a>.)</li>
+<li><a href="https://four.{{ base_domain }}/" rel="nofollow">four.{{ base_domain }}</a>: Publishes only an IPv4 address.  Unless your computer is IPv6-only, you should be able to reach this.  (Also available as <a href="https://ipv4.{{ base_domain }}/" rel="nofollow">ipv4.{{ base_domain }}</a> and <a href="https://4.{{ base_domain }}/" rel="nofollow">4.{{ base_domain }}</a>.)</li>
+</ul>
+<p>However, problems do occur.  Say you go to just <a href="https://{{ base_domain }}/">{{ base_domain }}</a> and your IPv6 is not configured properly, returning your IPv4 address.  You fix the problem, reload, and then... still IPv4?</p>
+<p>Caching occurs at several levels: your browser, your local DNS resolver, your ISP's DNS server, etc.  But fear not!  Simply go to <a href="https://{{ randid }}.nocache.{{ base_domain }}/" rel="nofollow"><strong><em>anything</em>.nocache.{{ base_domain }}</strong></a>.  This will return a site with both published IPv4 and IPv6 addresses, and with no DNS caching.</p>
+<p>However, things still happen.  Your browser could still cache one address over another.  Your ISP may be caching DNS too aggressively.  (That's polite speak for "they're breaking the rules".)  And so on.  In that case, simply choose another random subdomain.  May I suggest <a href="https://{{ randid }}.nocache.{{ base_domain }}/" rel="nofollow">{{ randid }}.nocache.{{ base_domain }}</a>?</p>
+<h2>About</h2>
+<p>This site was created by <a href="https://www.finnie.org/">Ryan Finnie</a>.  There are already several "what is my IP(v6)" sites out there, but this site was created because:</p>
+<ul>
+<li>The domain is short.</li>
+<li>It has no numerals in the domain, making it easier to type in a mobile device.  (Switching to the numeral mode on the iPhone wastes precious seconds!)</li>
+<li>It has extra test functionality in the form of the nocache wildcard.</li>
+</ul>
+<p>Other tidbits:</p>
+<ul>
+<li>This server has native (not tunnelled) IPv6 connectivity, and {{ base_domain }} is served by DNS servers with full IPv6 DNS glue, allowing for end-to-end IPv6 DNS resolution.  That means if you only have IPv6 connectivity, you'll still be able to reach this site, and if IPv4 were to go away tomorrow, this site would still function.</li>
+<li>For another interface with other IPv6 tests, see <a href="https://test-ipv6.com/">test-ipv6.com</a>.</li>
+<li>You should download <a href="https://www.finnix.org/">Finnix</a>, the LiveCD for system administrators.</li>
+</ul>
+</div>
+</body>
+</html>

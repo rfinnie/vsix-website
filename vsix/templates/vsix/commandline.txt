@@ -1,0 +1,4 @@
+Hi there, command line user!
+
+Your IP address is: {{ request.META.REMOTE_ADDR }}
+Your user agent is: {{ request.META.HTTP_USER_AGENT }}
