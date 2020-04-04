@@ -8,16 +8,16 @@
 <meta name="robots" content="noindex"/>
 {% endif %}
 <title>{{ base_domain }} IP Tests</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Pontano+Sans&display=swap" rel="stylesheet"> 
+<link href="{% static 'vsix/darkly.min.css' %}" rel="stylesheet" type="text/css"/>
 <link href="{% static 'vsix/style.css' %}" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div class="container">
 <h1>{{ base_domain }} IP Tests</h1>
-<p class="center">Your IP address is:</p>
-<p class="center displayip">
-<a title="WHOIS lookup at ARIN" href="https://whois.arin.net/rest/nets;q={{ request.META.REMOTE_ADDR }}?showDetails=true&amp;showARIN=false&amp;ext=netref2">{{ request.META.REMOTE_ADDR }}</a></p>
+<p class="text-center">Your IP address is:</p>
+<blockquote class="text-center blockquote displayip">
+<a title="WHOIS lookup at ARIN" href="https://whois.arin.net/rest/nets;q={{ request.META.REMOTE_ADDR }}?showDetails=true&amp;showARIN=false&amp;ext=netref2">{{ request.META.REMOTE_ADDR }}</a>
+</blockquote>
 {% if is_ipv6 %}
 <p>This is an IPv6 address, which means you have a functioning IPv6 stack.</p>
 {% if known_net == 'he' %}
