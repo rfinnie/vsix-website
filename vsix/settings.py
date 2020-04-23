@@ -20,26 +20,26 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = ""
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-BASE_DOMAIN = 'vsix.us'
-ALLOWED_HOSTS = ['.vsix.us']
+BASE_DOMAIN = "vsix.us"
+ALLOWED_HOSTS = [".vsix.us"]
 USE_X_FORWARDED_HOST = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Application definition
 
 INSTALLED_APPS = [
-    'vsix.apps.VsixAppConfig',
+    "vsix.apps.VsixAppConfig",
     # 'django.contrib.admin',
     # 'django.contrib.auth',
     # 'django.contrib.contenttypes',
     # 'django.contrib.sessions',
     # 'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "django.contrib.staticfiles",
 ]
 
 MIDDLEWARE = [
@@ -50,29 +50,29 @@ MIDDLEWARE = [
     # 'django.contrib.auth.middleware.AuthenticationMiddleware',
     # 'django.contrib.messages.middleware.MessageMiddleware',
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'xff.middleware.XForwardedForMiddleware',
+    "xff.middleware.XForwardedForMiddleware"
 ]
 XFF_TRUSTED_PROXY_DEPTH = 1
 XFF_STRICT = True
 
-ROOT_URLCONF = 'vsix.urls'
+ROOT_URLCONF = "vsix.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
                 # 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
+                "django.template.context_processors.request",
                 # 'django.contrib.auth.context_processors.auth',
                 # 'django.contrib.messages.context_processors.messages',
-            ],
+            ]
         },
-    },
+    }
 ]
 
-WSGI_APPLICATION = 'vsix.wsgi.application'
+WSGI_APPLICATION = "vsix.wsgi.application"
 
 
 # Database
@@ -108,9 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -122,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 
 try:
