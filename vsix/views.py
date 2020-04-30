@@ -16,7 +16,9 @@ def get_randid():
 def index_commandline(request):
     now = int(time.time())
     now_epoch = now - (now % 20826)
-    access_key = "{:08x}".format(binascii.crc32((str(now_epoch) + SECRET_KEY).encode("UTF-8")) & 0xFFFFFFFF)[0:4]
+    access_key = "{:08x}".format(
+        binascii.crc32((str(now_epoch) + SECRET_KEY).encode("UTF-8")) & 0xFFFFFFFF
+    )[0:4]
 
     server_hostname = request.get_host()
 
@@ -31,7 +33,9 @@ def index_commandline(request):
         template = loader.get_template("vsix/commandline.txt")
     else:
         template = loader.get_template("vsix/commandline_noauth.txt")
-    response = HttpResponse(template.render(context, request), content_type="text/plain")
+    response = HttpResponse(
+        template.render(context, request), content_type="text/plain"
+    )
     response["Cache-control"] = "no-cache"
     response["Expires"] = "0"
     return response

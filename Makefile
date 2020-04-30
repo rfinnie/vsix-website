@@ -11,4 +11,4 @@ lint:
 test: lint
 
 black:
-	$(PYTHON) -mblack --line-length=120 $(CURDIR)
+	$(PYTHON) -mblack $(CURDIR)
