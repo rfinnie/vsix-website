@@ -1,4 +1,5 @@
-import binascii
+import hashlib
+import hmac
 import ipaddress
 import time
 
@@ -16,9 +17,11 @@ def get_randid():
 def index_commandline(request):
     now = int(time.time())
     now_epoch = now - (now % 20826)
-    access_key = "{:08x}".format(
-        binascii.crc32((str(now_epoch) + SECRET_KEY).encode("UTF-8")) & 0xFFFFFFFF
-    )[0:4]
+    access_key = hmac.new(
+        SECRET_KEY.encode("UTF-8"),
+        msg=str(now_epoch).encode("UTF-8"),
+        digestmod=hashlib.sha256,
+    ).hexdigest()[0:4]
 
     server_hostname = request.get_host()
 
