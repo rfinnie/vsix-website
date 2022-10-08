@@ -9,5 +9,5 @@ setup(
     author="Ryan Finnie",
     packages=["vsix"],
     include_package_data=True,
-    install_requires=["Django", "django-xff"],
+    install_requires=["Django", "django-xff", "tzdata"],
 )
