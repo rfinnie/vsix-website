@@ -1,3 +1,7 @@
+# SPDX-PackageSummary: vsix-website
+# SPDX-FileCopyrightText: Copyright (C) 2020-2025 Ryan Finnie
+# SPDX-License-Identifier: MPL-2.0
+
 from django.apps import AppConfig
 
 

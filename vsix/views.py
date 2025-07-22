@@ -1,3 +1,7 @@
+# SPDX-PackageSummary: vsix-website
+# SPDX-FileCopyrightText: Copyright (C) 2020-2025 Ryan Finnie
+# SPDX-License-Identifier: MPL-2.0
+
 import hashlib
 import hmac
 import ipaddress
@@ -36,9 +40,7 @@ def index_commandline(request):
         template = loader.get_template("vsix/commandline.txt")
     else:
         template = loader.get_template("vsix/commandline_noauth.txt")
-    response = HttpResponse(
-        template.render(context, request), content_type="text/plain"
-    )
+    response = HttpResponse(template.render(context, request), content_type="text/plain")
     response["Cache-control"] = "no-cache"
     response["Expires"] = "0"
     return response

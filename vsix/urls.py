@@ -1,3 +1,7 @@
+# SPDX-PackageSummary: vsix-website
+# SPDX-FileCopyrightText: Copyright (C) 2020-2025 Ryan Finnie
+# SPDX-License-Identifier: MPL-2.0
+
 """vsix URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,6 +17,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 # from django.contrib import admin
 from django.urls import path
 
