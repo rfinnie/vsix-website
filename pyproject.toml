@@ -17,8 +17,14 @@ dependencies = [
 ]
 dynamic = ["version"]
 
+[project.optional-dependencies]
+gunicorn = ["gunicorn"]
+
 [tool.setuptools.packages.find]
-include = ["vsix"]
+include = [
+    "vsix",
+    "vsix.tests",
+]
 
 [tool.black]
 line-length = 132
