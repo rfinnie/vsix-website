@@ -1,5 +1,5 @@
-# SPDX-PackageSummary: werder
-# SPDX-FileCopyrightText: Copyright (C) 2008-2018 Ryan Finnie
+# SPDX-FileComment: werder
+# SPDX-FileCopyrightText: © 2008 Ryan Finnie <ryan@finnie.org>
 # SPDX-License-Identifier: MPL-2.0
 
 # A 2018 Python port of a 2008 PHP port of a 1998 C program.
