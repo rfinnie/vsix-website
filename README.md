@@ -8,6 +8,6 @@ This document is provided under the following license:
 
     SPDX-PackageName: vsix-website
     SPDX-PackageSupplier: Ryan Finnie <ryan@finnie.org>
-    SPDX-PackageDownloadLocation: https://github.com/rfinnie/vsix-website
+    SPDX-PackageDownloadLocation: https://codeberg.org/rfinnie/vsix-website
     SPDX-FileCopyrightText: © 2025 Ryan Finnie <ryan@finnie.org>
     SPDX-License-Identifier: CC-BY-SA-4.0
