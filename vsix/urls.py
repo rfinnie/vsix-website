@@ -20,12 +20,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-# from django.contrib import admin
+from django.conf import settings
 from django.urls import path
 
-from . import views
+from . import views, pyinfo
 
 urlpatterns = [
     path("", views.index, name="index"),
-    # path('admin/', admin.site.urls),
+    path("pyinfo/{}/".format(settings.PYINFO_KEY), pyinfo.PyInfoView.as_view(), name="pyinfo"),
 ]
